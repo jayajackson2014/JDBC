@@ -1,0 +1,35 @@
+//Prepare Statement
+package com.myproject;
+import java.sql.*;
+
+public class JDBCDemo {
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			//step1:Register the Driver class
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			//Step2: Connection creation
+			Connection con=DriverManager.getConnection
+					("jdbc:mysql://localhost:3306/company",
+							"root","Root");
+			System.out.println("connection established");
+			//Step3: Create statement
+			String query ="update employee set salary=? where emp_name='Gopal'";
+			PreparedStatement test = con.prepareStatement(query);
+			
+			test.setInt(1,150000);
+			//Step4: Execute queries
+			test.executeUpdate();
+
+			//Step5:Close connection
+			con.close();
+
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+	}
+
+}
