@@ -1,0 +1,24 @@
+package com.myproject;
+import java.sql.*;
+
+public class JDBCDemo {
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			//step1:Register the Driver class
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			//Step2: Connection creation
+			Connection con=DriverManager.getConnection
+					("jdbc:mysql://localhost:3306/company",
+							"root","Root");
+			System.out.println("connection established");
+
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+	}
+
+}
