@@ -1,0 +1,2 @@
+create table employee(emp_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,emp_name varchar(20),dept varchar(20),salary int);
+insert into employee(emp_name,dept,salary) values('Jaya','CSE',500000),('Preeti','CSE',10000000),('Pramod','VSCom',100000),('Gopal','VFX',1000000),('Snighadeep','Sound Engineering',1000000);
