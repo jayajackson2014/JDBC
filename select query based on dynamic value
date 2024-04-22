@@ -1,0 +1,43 @@
+//Prepare Statement
+package com.myproject;
+import java.sql.*;
+
+public class JDBCDemo {
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			//step1:Register the Driver class
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			//Step2: Connection creation
+			Connection con=DriverManager.getConnection
+					("jdbc:mysql://localhost:3306/company",
+							"root","Root");
+			System.out.println("connection established");
+			//Step3: Create statement
+			String query="select emp_name from employee where emp_id=?";
+			PreparedStatement smt=con.prepareStatement(query);
+
+			//Step4: Execute queries
+						int id=3;
+						smt.setInt(1, id);
+						//Execute queries
+						ResultSet rs=smt.executeQuery();
+						while(rs.next()) {
+							System.out.println(rs.getString(1));
+						}
+
+			//Step5:Close connection
+			con.close();
+
+
+
+
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+	}
+
+}
