@@ -12,8 +12,8 @@ public class JDBCDemo {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			//Step2: Connection creation
 			Connection con=DriverManager.getConnection
-					("jdbc:mysql://localhost:3306/company",
-							"root","Root");
+			("jdbc:mysql://localhost:3306/DataBaseName",
+							"UserName","Password");
 			System.out.println("connection established");
 			//Step3: Create statement
 			String query="select emp_name from employee where emp_id=?";
